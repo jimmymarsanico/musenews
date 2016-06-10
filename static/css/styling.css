@@ -420,6 +420,10 @@ footer {
 		left: 45%;
 	}
 
+	.job-title {
+		width: 50%;
+	}
+	
 	.job-location {
 		width: 100%;
 		text-align: left;

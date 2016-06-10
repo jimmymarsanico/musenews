@@ -91,7 +91,7 @@ header {
     position: absolute;
     top: 0;
     z-index: 101;
-    transform: translate(100%, 250%);
+    transform: translate(500px, 125px);
 }
 
 .article-copy h1 {
@@ -101,6 +101,20 @@ header {
 
 .article-copy h2 {
 	font-size: 15px;
+	font-family: 'PT Serif', serif;
+	line-height: 1.3em;
+	font-style: italic;
+	margin: 15px auto;
+	width: 300px;
+}
+
+.article button {
+	background: transparent;
+    border: 2px solid #ffffff;
+    color: #fff;
+    padding: 12px 30px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .bg-image {
@@ -131,4 +145,24 @@ header {
 	top: 0;
 	left: 0;
 	z-index: 100;	
+}
+
+.jobs {
+	float: left;
+	width: 50%;
+}
+
+.apply-button {
+	background-color: #56b0d3;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+}
+
+.companies {
+	float: right;
+	width: 50%;
 }

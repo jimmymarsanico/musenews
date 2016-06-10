@@ -40,45 +40,14 @@ ul li {
 	display: inline-block;
 }
 
-.muse-logo {
-	float: left;
+.container1350 {
+	max-width: 1350px;
+	margin: 0 auto;
 }
 
-.muse-logo img {
-	width: 100px;
-}
-
-.gen-info {
-	display: inline-block;
-	text-transform: uppercase;
-	font-family: 'PT Serif', serif;
-	font-size: 15px;
-	padding-left: 150px;
-	padding-top: 6px;
-}
-
-.gen-info li {
-	color: #fff;
-	padding: 0px 25px;
-}
-
-/*.gen-info li:last-child {
-	padding-right: 0px;
-}*/
-
-.social {
-	float: right;
-}
-
-.social i {
-	background-color: #56b0d3;
-	color: #333;
-	height: 26px;
-	width: 26px;
-	border-radius: 50%;
-	line-height: 26px;
-    text-align: center;
-    margin: 0 5px;
+.container1500 {
+	max-width: 1500px;
+	margin: 0 auto;
 }
 
 /** article styling **/
@@ -100,6 +69,8 @@ ul li {
 
 .article-copy h1 {
 	font-size: 30px;
+	max-width: 600px;
+	margin: 0 auto;
 	font-family: 'Proxima';
 }
 
@@ -182,6 +153,10 @@ ul li {
 	border: none;
 }
 
+.indiv-job {
+	max-width: 500px;
+}
+
 .job-title {
 	font-family: 'PT Serif', serif;
 	font-size: 14px;
@@ -213,6 +188,10 @@ ul li {
 	font-size: 45px;
 	text-align: center;
 	padding: 20px 0px;
+}
+
+.apply-job {
+	float: right;
 }
 
 .apply-button {
@@ -284,6 +263,44 @@ footer {
     position: fixed;
     bottom: 0;
 }
+
+.muse-logo {
+	float: left;
+}
+
+.muse-logo img {
+	width: 100px;
+}
+
+.gen-info {
+	display: inline-block;
+	text-transform: uppercase;
+	font-family: 'PT Serif', serif;
+	font-size: 15px;
+	padding-left: 150px;
+	padding-top: 6px;
+}
+
+.gen-info li {
+	color: #fff;
+	padding: 0px 25px;
+}
+
+.social {
+	float: right;
+}
+
+.social i {
+	background-color: #56b0d3;
+	color: #333;
+	height: 26px;
+	width: 26px;
+	border-radius: 50%;
+	line-height: 26px;
+    text-align: center;
+    margin: 0 5px;
+}
+
 
 /************************* responsive *************************/
 @media (max-width: 1200px) {
@@ -375,5 +392,52 @@ footer {
 
 	.article button {
 		font-size: 10px;
+	}
+
+}
+
+@media (max-width: 480px) {
+	.jobs > ul {
+		padding: 0px 20px;
+	}
+
+	.indiv-job {
+		position: relative;
+		padding: 20px;
+	}
+
+	.apply-job {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+	}
+
+	.job-location {
+		width: 100%;
+		text-align: left;
+		padding: 0px;
+	}
+
+	.companies > ul {
+		width: 65%;
+	}
+
+	.companies img {
+		width: 200px;
+	}
+
+	.companies > ul li:first-child {
+		margin-bottom: 15px;
+	}
+
+	.company-copy {
+		width: 100%;
+		padding-left: 0px;
+	}
+
+	.company-copy h3 {
+		text-align: center;
+    	padding: 10px 0px;
+    	font-size: 18px;
 	}
 }

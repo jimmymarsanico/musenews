@@ -62,7 +62,7 @@ ul li {
     color: #fff;
     text-align: center;
     position: relative;
-    top: 100px;
+    top: 50px;
     z-index: 101;
     margin: 0 auto;
 }
@@ -119,7 +119,7 @@ ul li {
 .bg-image img {
 	width: 100%;
 	position: relative;
-	top: -200px;
+	top: 0px;
 }
 
 .gradient {
@@ -161,10 +161,12 @@ ul li {
 	font-family: 'PT Serif', serif;
 	font-size: 14px;
 	line-height: 1.2em;
+	max-width: 200px;
 }
 
 .job-title h4 {
 	font-weight: 700;
+	text-align: left;
 }
 
 .job-location {
@@ -190,9 +192,9 @@ ul li {
 	padding: 20px 0px;
 }
 
-.apply-job {
+/*.apply-job {
 	float: right;
-}
+}*/
 
 .apply-button {
 	background-color: #56b0d3;
@@ -336,6 +338,12 @@ footer {
 		width: 100%;
 	}
 
+	.jobs > ul li,
+	.jobs > ul > ul li {
+		display: block;
+	}
+
+
 	.job-title {
 		float: left;
 	}
@@ -403,13 +411,13 @@ footer {
 
 	.indiv-job {
 		position: relative;
-		padding: 20px;
+		padding: 50px 0px;
 	}
 
 	.apply-job {
 		position: absolute;
-		bottom: 10px;
-		right: 10px;
+		bottom: -10px;
+		left: 45%;
 	}
 
 	.job-location {

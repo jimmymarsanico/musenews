@@ -40,16 +40,6 @@ ul li {
 	display: inline-block;
 }
 
-/** header styling **/ 
-footer {
-	background-color: #333;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-}
-
 .muse-logo {
 	float: left;
 }
@@ -96,6 +86,7 @@ footer {
     height: 300px;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .article-copy {
@@ -104,6 +95,7 @@ footer {
     position: relative;
     top: 100px;
     z-index: 101;
+    margin: 0 auto;
 }
 
 .article-copy h1 {
@@ -117,7 +109,7 @@ footer {
 	line-height: 1.3em;
 	font-style: italic;
 	margin: 20px auto;
-	width: 300px;
+	max-width: 550px;
 }
 
 .article button {
@@ -192,9 +184,12 @@ footer {
 
 .job-title {
 	font-family: 'PT Serif', serif;
-	font-weight: bold;
 	font-size: 14px;
 	line-height: 1.2em;
+}
+
+.job-title h4 {
+	font-weight: 700;
 }
 
 .job-location {
@@ -280,21 +275,105 @@ footer {
 	padding-left: 2px;
 }
 
+/** footer styling **/ 
+footer {
+	background-color: #333;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
 /************************* responsive *************************/
-@media (max-width: 767px) {
+@media (max-width: 1200px) {
+	.companies > ul {
+		width: 80%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.gradient {
+		height: 280px;
+	}
+}
+
+@media (max-width: 991px) {
+	.gradient {
+		height: 300px;
+	}
+
+	.article-copy {
+		width: 95%;
+		top: 75px;
+	}
+
+	.bg-image img {
+		top: 0;
+	}
+
+
 	.jobs, 
 	.companies {
 		float: none;
 		width: 100%;
 	}
 
-	.job-company {
-		display: inline-block;
+	.job-title {
+		float: left;
+	}
+
+	.companies img {
+		width: 250px;
 	}
 
 	.apply-button {
-		width: 50%;
 		display: block;
 		margin: 0 auto;
+	}
+
+	footer {
+		position: static;
+		text-align: center;
+		margin-top: 50px;
+	}
+
+	.muse-logo, 
+	.social {
+		float: none;
+	}
+
+	.gen-info {
+		padding-left: 10px;
+	}
+
+	.gen-info li {
+		padding: 10px;
+	}
+
+}
+
+@media (max-width: 767px) {
+	.bg-image, 
+	.gradient, 
+	.article {
+		height: 156px;
+	}
+
+	.article-copy {
+		top: 40px;
+	}
+
+	.article-copy h1 {
+		padding-bottom: 15px;
+		font-size: 20px;
+	}
+
+	.article-copy h2 {
+		display: none;
+	}
+
+	.article button {
+		font-size: 10px;
 	}
 }

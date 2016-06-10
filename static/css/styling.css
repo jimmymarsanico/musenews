@@ -141,12 +141,16 @@ ul li {
 
 .jobs > ul {
 	border-right: 1px solid #ebebeb;
-	margin-bottom: 50px;
+	text-align: left;
+	max-width: 550px;
+	padding: 0px 40px;
+	margin: 0 auto 50px;
 }
 
 .jobs > ul > li {
 	border-bottom: 1px solid #e2dbdb;
 	padding: 17px 0px;
+	width: 100%;
 }
 
 .jobs > ul > li:last-child {
@@ -192,9 +196,9 @@ ul li {
 	padding: 20px 0px;
 }
 
-/*.apply-job {
+.apply-job {
 	float: right;
-}*/
+}
 
 .apply-button {
 	background-color: #56b0d3;
@@ -205,6 +209,7 @@ ul li {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 700;
 	font-size: 14px;
+	text-align: right;
 }
 
 /************************* company styling *************************/
@@ -423,7 +428,7 @@ footer {
 	.job-title {
 		width: 50%;
 	}
-	
+
 	.job-location {
 		width: 100%;
 		text-align: left;

@@ -3,15 +3,15 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
-	    <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
-	    <script src="main.js"></script>
-	    <title class="page-title">MuseNews</title>
-		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link href="../css/reset.css" media="screen, projection" rel="stylesheet">
+	  <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="main.js"></script>
+	  <title class="page-title">MuseNews</title>
+		<link href="../static/css/reset.css" media="screen, projection" rel="stylesheet">
+    <link href="../static/css/styling.css" media="screen, projection" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-		<link href="../css/styling.css" media="screen, projection" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	</head>
 	<body>
 		<header class="clearfix">
@@ -19,10 +19,9 @@
 				<img src="../static/img/logo-white.svg">
 			</a>
 			<ul class="gen-info">
-				<li>New York City  |</li>
-				<li>71&deg; |</li>
-				<li>June 10, 2016  |</li>
-				<li>1:30pm</li>
+        <li id="current-date">June 9, 2016</li>
+        <li id="city"></li>
+				<li id="temperature"></li>
 			</ul>
 			<ul class="social">
 				<li>
@@ -56,12 +55,12 @@
 			<section class="article">
 				<div class="gradient"></div>
 				<div class="bg-image">
-					<img src="../static/img/hero.jpg">
+					<img id="hero-image" src="../static/img/hero.jpg">
 				</div>
 				<div class="article-copy">
-					<h1>Making Your Own Happiness</h1>
-					<h2>Why is it that, even when all our ducks are in a row, we still don't always feel happy</h2>
-					<button>Read More</button>
+					<h1 id="article-title">Making Your Own Happiness</h1>
+					<h2 id="article-excerpt">Why is it that, even when all our ducks are in a row, we still don't always feel happy</h2>
+					<button id="article-button">Read More</button>
 				</div>
 			</section>
 			<section class="jobs">

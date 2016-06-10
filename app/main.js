@@ -23,9 +23,7 @@ if it doesnt exist yet
 
 */
 
-var GLOBAL_NUM_POSTS      = 1;
-var GLOBAL_NUM_COMPANIES  = 2;
-var GLOBAL_NUM_JOBS       = 4;
+
 
 /* FROM STACK OVERFLOW */
 
@@ -267,32 +265,93 @@ var resetKey = function(key){
 
 };
 
+function containsObject(obj, list) {
+  var i;
+  for (i = 0; i < list.length; i++) {
+    if (list[i] === obj) {
+        return true;
+    }
+  }
+  return false;
+}
+
+
+var MUSENEWS_UTM_PARAMS = '?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral'
+var GLOBAL_NUM_POSTS      = 1;
+var GLOBAL_NUM_COMPANIES  = 2;
+var GLOBAL_NUM_JOBS       = 4;
+
 $(document).ready(function() {
 
-  var todayKey        = getTodayDate();
-  var todayDate       = getPrettyDate();
-  var todayPosts      ;
-  var todayCompanies  ;
-  var todayJobs       ;
+  // var todayKey            = getTodayDate();
+  var todayDate           = getPrettyDate();
+  var todayPostList       = getMuse('posts');
+  var todayJobsList       = getMuse('companies');
+  var todayCompaniesList  = getMuse('jobs');
 
-  getAllStorage();
 
   // Check the user location - and set the location & weather if possible
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(locationSuccessFunction, locationErrorFunction);
   }
 
-  var posts = getMuse('posts');
-  todayPosts = posts[randBetween(0, posts.length-1)];
-  $("#article-title").text(todayPosts.name);
-  $("#article-excerpt").text(todayPosts.excerpt);
-  console.log(todayPosts)
+
+  // var todayPost = todayPostList[randBetween(0, todayPostList.length-1)];
+  /* Decide which article(s) to display */
+  var todayPost = [];
+  var i;
+  for(i=0; i<GLOBAL_NUM_POSTS; i++){
+    tp = todayPostList[randBetween(0, todayPostList.length-1)];
+    if(!containsObject(tp, todayPost)){
+      todayPost.push(tp)
+    } else {
+      i--;
+    }
+  };
+  console.log(todayPost);
+
+  /* Decide which jobs to display */
+  var todayJobs = [];
+  var i;
+  for(i=0; i<GLOBAL_NUM_JOBS; i++){
+    tj = todayJobsList[randBetween(0, todayJobsList.length-1)];
+    if(!containsObject(tj, todayJobs)){
+      todayJobs.push(tj)
+    } else {
+      i--;
+    }
+  };
+  console.log(todayJobs);
+
+  /* Decide which companies to display */
+  var todayCompanies = [];
+  var i;
+  for(i=0; i<GLOBAL_NUM_COMPANIES; i++){
+    tc = todayCompaniesList[randBetween(0, todayCompaniesList.length-1)];
+    if(!containsObject(tc, todayCompanies)){
+      todayCompanies.push(tc)
+    } else {
+      i--;
+    }
+  };
+  console.log(todayCompanies);
+
+
+
+
+
+  /* Populate the Article section */
+  todayPost = todayPost[0];
+  $("#article-title").text(todayPost.name);
+  $("#article-excerpt").text(todayPost.excerpt);
   $("#article-button").click(function() {
-    window.open(todayPosts.refs.landing_page, '_blank');
+    window.open(todayPost.refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank');
   });
-  $("#hero-image").attr('src', todayPosts.refs.primary_image);
+  $("#hero-image").attr('src', todayPost.refs.primary_image);
+
+  /* Populate the Jobs sections */
 
 
-
+  /* Populate the Companies sections */
 
 });

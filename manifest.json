@@ -1,21 +1,37 @@
 {
+  "manifest_version": 2,
+
   "name": "Muse News",
-  "version": "1.0",
-  "manifest_version": 1,
   "description": "Delivers a daily snapshot of career advice from TheMuse.com.",
-  "icons": {"16": "static/img/logo/CompanyMuseLogo_16.png",
-  					"48": "static/img/logo/CompanyMuseLogo_48.png",
-  					"64": "static/img/logo/CompanyMuseLogo_64.png",
-  					"128": "static/img/logo/CompanyMuseLogo_128.png"
+  "version": "2.0",
+
+  "icons": {
+    "16": "static/img/logo/CompanyMuseLogo_16.png",
+  	"48": "static/img/logo/CompanyMuseLogo_48.png",
+  	"64": "static/img/logo/CompanyMuseLogo_64.png",
+  	"128": "static/img/logo/CompanyMuseLogo_128.png"
    },
+
   "background": {
     "persistent": true,
     "scripts": ["app/background.js"]
   },
+
+  "content_scripts": [{
+     "js": ["static/js/jquery/jquery-2.2.4.min.js","app/main.js"],
+     "matches": ["http://*/*","https://*/*"]
+   }],
+
   "chrome_url_overrides" : {
     "newtab": "app/dashboard.html"
   },
+
   "permissions": [
+    "activeTab",
+    "storage",
+    "https://ajax.googleapis.com/",
+    "geolocation",
+    "chrome://favicon/",
   	"http://*.google.com/",
   	"https://*.google.com/",
   	"background",

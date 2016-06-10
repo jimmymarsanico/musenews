@@ -41,10 +41,13 @@ ul li {
 }
 
 /** header styling **/ 
-header {
+footer {
 	background-color: #333;
     padding: 10px;
     text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 .muse-logo {
@@ -57,11 +60,21 @@ header {
 
 .gen-info {
 	display: inline-block;
+	text-transform: uppercase;
+	font-family: 'PT Serif', serif;
+	font-size: 15px;
+	padding-left: 150px;
+	padding-top: 6px;
 }
 
 .gen-info li {
 	color: #fff;
+	padding: 0px 25px;
 }
+
+/*.gen-info li:last-child {
+	padding-right: 0px;
+}*/
 
 .social {
 	float: right;
@@ -80,7 +93,7 @@ header {
 
 /** article styling **/
 .article {
-    height: 350px;
+    height: 300px;
     width: 100%;
     position: relative;
 }
@@ -88,10 +101,9 @@ header {
 .article-copy {
     color: #fff;
     text-align: center;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: 100px;
     z-index: 101;
-    transform: translate(500px, 125px);
 }
 
 .article-copy h1 {
@@ -104,7 +116,7 @@ header {
 	font-family: 'PT Serif', serif;
 	line-height: 1.3em;
 	font-style: italic;
-	margin: 15px auto;
+	margin: 20px auto;
 	width: 300px;
 }
 
@@ -117,12 +129,22 @@ header {
     text-transform: uppercase;
 }
 
+.article button:hover {
+	background-color: #fff;
+	color: #333;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
 .bg-image {
     min-height: 100px;
     width: 100%;
     position: absolute;
     z-index: 10;
-    height: 350px;
+    height: 300px;
     overflow: hidden;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -139,17 +161,63 @@ header {
 
 .gradient {
 	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.2));
-	height: 350px;
+	height: 300px;
 	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 100;	
+	z-index: 100;
 }
+/************************* jobs styling *************************/
 
 .jobs {
 	float: left;
 	width: 50%;
+	text-align: center;
+}
+
+.jobs > ul {
+	border-right: 1px solid #ebebeb;
+	margin-bottom: 50px;
+}
+
+.jobs > ul > li {
+	border-bottom: 1px solid #e2dbdb;
+	padding: 17px 0px;
+}
+
+.jobs > ul > li:last-child {
+	border: none;
+}
+
+.job-title {
+	font-family: 'PT Serif', serif;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+
+.job-location {
+	padding: 0px 30px;
+    font-family: 'PT Serif',Georgia,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: #999999;
+}
+
+.job-company {
+	display: block;
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+}
+
+.jobs h1,
+.companies h1 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 45px;
+	text-align: center;
+	padding: 20px 0px;
 }
 
 .apply-button {
@@ -160,9 +228,73 @@ header {
     text-transform: uppercase;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 700;
+	font-size: 14px;
 }
+
+/************************* company styling *************************/
 
 .companies {
 	float: right;
 	width: 50%;
+}
+
+.companies > ul {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.companies > ul > li {
+	display: block;
+}
+
+.companies > ul > li:first-child {
+	padding-bottom: 17px;
+}
+
+.companies img {
+	width: 155px;
+	float: left;
+}
+
+.company-copy {
+	float: left;
+	font-family: 'PT Serif',Georgia,serif;
+	width: 60%;
+	padding-left: 20px;
+}
+
+.company-copy h3 {
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.company-copy p {
+	color: #999;
+	line-height: 1.3em;
+	font-size: 13px;
+	padding-top: 5px;
+}
+
+.company-copy a {
+	color: #56b0d3;
+	padding-left: 2px;
+}
+
+/************************* responsive *************************/
+@media (max-width: 767px) {
+	.jobs, 
+	.companies {
+		float: none;
+		width: 100%;
+	}
+
+	.job-company {
+		display: inline-block;
+	}
+
+	.apply-button {
+		width: 50%;
+		display: block;
+		margin: 0 auto;
+	}
 }

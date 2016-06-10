@@ -286,8 +286,8 @@ $(document).ready(function() {
   // var todayKey            = getTodayDate();
   var todayDate           = getPrettyDate();
   var todayPostList       = getMuse('posts');
-  var todayJobsList       = getMuse('companies');
-  var todayCompaniesList  = getMuse('jobs');
+  var todayJobsList       = getMuse('jobs');
+  var todayCompaniesList  = getMuse('companies');
 
 
   // Check the user location - and set the location & weather if possible
@@ -350,8 +350,51 @@ $(document).ready(function() {
   $("#hero-image").attr('src', todayPost.refs.primary_image);
 
   /* Populate the Jobs sections */
+  $("#job-title-0").text(todayJobs[0].name);
+  $("#job-location-0").text(todayJobs[0].locations[0].name);
+  $("#job-apply-link-0").removeAttr("href");
+  $("#job-apply-link-0").click(function() {
+    window.open(todayJobs[0].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
+  $("#job-company-0").text(todayJobs[0].company.name);
 
+  $("#job-title-1").text(todayJobs[1].name);
+  $("#job-location-1").text(todayJobs[1].locations[0].name);
+  $("#job-apply-link-1").removeAttr("href");
+  $("#job-apply-link-1").click(function() {
+    window.open(todayJobs[1].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
+  $("#job-company-1").text(todayJobs[1].company.name);
+
+  $("#job-title-2").text(todayJobs[2].name);
+  $("#job-location-2").text(todayJobs[2].locations[0].name);
+  $("#job-apply-link-2").removeAttr("href");
+  $("#job-apply-link-2").click(function() {
+    window.open(todayJobs[2].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
+  $("#job-company-2").text(todayJobs[2].company.name);
+
+  $("#job-title-3").text(todayJobs[3].name);
+  $("#job-location-3").text(todayJobs[3].locations[0].name);
+  $("#job-apply-link-3").removeAttr("href");
+  $("#job-apply-link-3").click(function() {
+    window.open(todayJobs[3].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
+  $("#job-company-3").text(todayJobs[3].company.name);
 
   /* Populate the Companies sections */
+  $("#company-image-0").attr('src', todayCompanies[0].refs.f1_image);
+  $("#company-name-0").text(todayCompanies[0].name);
+  $("#company-excerpt-0").text(todayCompanies[0].description.substring(0,137)+'...')
+  $("#company-jobs-0").click(function(){
+    window.open(todayCompanies[0].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
+
+  $("#company-image-1").attr('src', todayCompanies[1].refs.f1_image);
+  $("#company-name-1").text(todayCompanies[1].name);
+  $("#company-excerpt-1").text(todayCompanies[1].description.substring(0,137)+'...')
+  $("#company-jobs-1").click(function(){
+    window.open(todayCompanies[1].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
 
 });

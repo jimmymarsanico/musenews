@@ -383,5 +383,18 @@ $(document).ready(function() {
   $("#job-company-3").text(todayJobs[3].company.name);
 
   /* Populate the Companies sections */
+  $("#company-image-0").attr('src', todayCompanies[0].refs.f1_image);
+  $("#company-name-0").text(todayCompanies[0].name);
+  $("#company-excerpt-0").text(todayCompanies[0].description.substring(0,137)+'...')
+  $("#company-jobs-0").click(function(){
+    window.open(todayCompanies[0].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
+
+  $("#company-image-1").attr('src', todayCompanies[1].refs.f1_image);
+  $("#company-name-1").text(todayCompanies[1].name);
+  $("#company-excerpt-1").text(todayCompanies[1].description.substring(0,137)+'...')
+  $("#company-jobs-1").click(function(){
+    window.open(todayCompanies[1].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
+  });
 
 });

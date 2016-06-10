@@ -17,6 +17,10 @@
     "scripts": ["app/background.js"]
   },
 
+  "content_scripts": [{
+     "js": ["static/js/jquery/jquery-2.2.4.min.js","app/main.js"],
+     "matches": ["http://*/*","https://*/*"]
+   }],
 
   "chrome_url_overrides" : {
     "newtab": "app/dashboard.html"
@@ -26,6 +30,7 @@
     "activeTab",
     "storage",
     "https://ajax.googleapis.com/",
+    "geolocation",
     "chrome://favicon/",
   	"http://*.google.com/",
   	"https://*.google.com/",

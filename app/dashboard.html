@@ -4,26 +4,63 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
 	    <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
-	    <script src="main.js"></script>
-	    <title class="page-title">MuseNews</title>
-		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link href="../css/reset.css" media="screen, projection" rel="stylesheet">
-		<link href='https://fonts.googleapis.com/css?family=PT+Serif:700,400italic,400' rel='stylesheet' type='text/css'>
+		<script src="main.js"></script>
+	  	<title class="page-title">MuseNews</title>
+		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-		<link href="../css/styling.css" media="screen, projection" rel="stylesheet">
+	    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../static/css/reset.css" media="screen, projection" rel="stylesheet">
+    	<link href="../static/css/styling.css" media="screen, projection" rel="stylesheet">
 	</head>
 	<body>
+		<header class="clearfix">
+			<a class="muse-logo" href="themuse.com">
+				<img src="../static/img/logo-white.svg">
+			</a>
+			<ul class="gen-info">
+        <li id="current-date">June 9, 2016</li>
+        <li id="city"></li>
+				<li id="temperature"></li>
+			</ul>
+			<ul class="social">
+				<li>
+		        	<a href="http://www.facebook.com/thedailymuse" target="_blank">
+		        		<i class="fa fa-facebook"></i>
+		        	</a>
+		        </li>
+		        <li>
+		        	<a href="https://www.linkedin.com/company/the-daily-muse" target="_blank">
+		        		<i class="fa fa-linkedin"></i>
+		        	</a>
+		        </li>
+		        <li>
+		        	<a href="http://twitter.com/dailymuse/" target="_blank">
+		        		<i class="fa fa-twitter"></i>
+		        	</a>
+		        </li>
+		        <li>
+		        	<a href="http://pinterest.com/thedailymuse/" target="_blank">
+		        		<i class="fa fa-pinterest-p"></i>
+		        	</a>
+		        </li>
+		        <li>
+		        	<a href="http://instagram.com/themuse/" target="_blank">
+		        		<i class="fa fa-instagram"></i>
+		        	</a>
+		        </li>
+			</ul>
+		</header>
 		<main class="main-container clearfix">
 			<section class="article">
 				<div class="gradient"></div>
 				<div class="bg-image">
-					<img src="../static/img/hero.jpg">
+					<img id="hero-image" src="../static/img/hero.jpg">
 				</div>
 				<div class="article-copy">
-					<h1>Making Your Own Happiness</h1>
-					<h2>Why is it that, even when all our ducks are in a row, we still don't always feel happy</h2>
-					<button>Read More</button>
+					<h1 id="article-title">Making Your Own Happiness</h1>
+					<h2 id="article-excerpt">Why is it that, even when all our ducks are in a row, we still don't always feel happy</h2>
+					<button id="article-button">Read More</button>
 				</div>
 			</section>
 			<section class="jobs">

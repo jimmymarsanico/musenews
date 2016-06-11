@@ -84,8 +84,11 @@ var GLOBAL_NUM_POSTS      = 1;
 var GLOBAL_NUM_COMPANIES  = 2;
 var GLOBAL_NUM_JOBS       = 4;
 
+var test = 1;
 $(document).ready(function() {
 
+  console.log(test++);
+  
   var todayDate           = getPrettyDate();
   var todayPostList       = getMuse('posts');
   var todayJobsList       = getMuse('jobs');
@@ -110,7 +113,7 @@ $(document).ready(function() {
       i--;
     }
   };
-  console.log(todayPost);
+  // console.log(todayPost);
 
   /* Decide which jobs to display */
   var todayJobs = [];
@@ -123,7 +126,7 @@ $(document).ready(function() {
       i--;
     }
   };
-  console.log(todayJobs);
+  // console.log(todayJobs);
 
   /* Decide which companies to display */
   var todayCompanies = [];
@@ -136,7 +139,7 @@ $(document).ready(function() {
       i--;
     }
   };
-  console.log(todayCompanies);
+  // console.log(todayCompanies);
 
   /* Populate the Article section */
   todayPost = todayPost[0];

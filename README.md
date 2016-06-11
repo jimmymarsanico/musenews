@@ -6,7 +6,6 @@ Please visit the Chrome Web Store and search for **MuseNews** to find our extens
 
 ## Known bugs to fix
 * GeoLocation permissions pop up on multiple webpages.
-* All buttons now open 2 links: 1 accurate, 1 fake.
 
 ## Further development & work
 * Continue working on reactive design for multiple monitor sizes.

@@ -84,11 +84,8 @@ var GLOBAL_NUM_POSTS      = 1;
 var GLOBAL_NUM_COMPANIES  = 2;
 var GLOBAL_NUM_JOBS       = 4;
 
-var test = 1;
 $(document).ready(function() {
 
-  console.log(test++);
-  
   var todayDate           = getPrettyDate();
   var todayPostList       = getMuse('posts');
   var todayJobsList       = getMuse('jobs');

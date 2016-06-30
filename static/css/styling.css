@@ -222,12 +222,12 @@ ul li {
 .apply-button {
     background-color: transparent;
     color: #554589;
-    padding: 10px 25px;
+    padding: 12px 25px;
     line-height: 1.2em;
     text-align: center;
     text-transform: uppercase;
-    font-family: "Proxima", Helvetica, sans-serif;
-    font-size: 12px;
+    font-family: "ProximaSemibold", Helvetica, sans-serif;
+    font-size: 10px;
     border: 2px solid #554589;
     border-radius: 25px;
     letter-spacing: 1px;

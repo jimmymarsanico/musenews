@@ -52,6 +52,11 @@ ul li {
     display: inline-block;
 }
 
+a:hover,
+button:hover {
+    cursor: pointer;
+}
+
 .container1350 {
     max-width: 1350px;
     margin: 0 auto;
@@ -102,6 +107,11 @@ ul li {
     border-radius: 25px;
     letter-spacing: 1px;
     margin-top: 15px;
+}
+
+.article button i {
+    font-size: 13px;
+    margin-left: 5px;
 }
 
 .article button:hover {
@@ -232,6 +242,11 @@ ul li {
     border-radius: 25px;
     letter-spacing: 1px;
     margin-top: 15px;
+}
+
+.apply-job a:hover {
+    color: #382d5b;
+    border: 2px solid #382d5b;
 }
 
 /************************* company styling *************************/

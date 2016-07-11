@@ -13,8 +13,8 @@
    },
 
   "background": {
-    "persistent": true,
-    "scripts": ["app/background.js"]
+    "scripts":    ["app/eventPage.js"],
+    "persistent": false
   },
 
   "content_scripts": [{
@@ -28,13 +28,13 @@
 
   "permissions": [
     "activeTab",
-    "storage",
-    "https://ajax.googleapis.com/",
     "geolocation",
     "chrome://favicon/",
   	"http://*.google.com/",
   	"https://*.google.com/",
   	"background",
-  	"tabs"
+  	"tabs",
+  	"http://*/*",
+  	"https://*/*"
   ]
 }

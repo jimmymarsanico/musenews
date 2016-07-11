@@ -1,10 +1,13 @@
-// Get the latitude and the longitude;
-function locationSuccessFunction(position) {
-  var lat = position.coords.latitude;
-  var lng = position.coords.longitude;
-  
+chrome.runtime.sendMessage ( {command: "getGeo"}, function (response) {
+    getWeather(response.geoLocation.lat, response.geoLocation.lon)
+} );
+
+
+// Get current weather based on user's latitude and longitude
+var getWeather = function(lat, lon){
   $.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lng + '&appid=371c14f020dced602ec9e316e451bf07',
+    url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=371c14f020dced602ec9e316e451bf07',
+    async: true,
     success: function(result) {
       var locName = result.name
       var degF = Math.round((result.main.temp*9/5)-459.67)
@@ -13,28 +16,6 @@ function locationSuccessFunction(position) {
       $("#temperature").text(degF + '°F / ' + degC + 'C')
     }
   })
-}
-
-
-// If the location retrieval fails
-function locationErrorFunction(){
-  console.log("Geocoder failed");
-}
-
-// Calls the Muse api by model-type
-var getMuse = function(api){
-  var data=[];
-  var d = $.ajax({
-    url: 'https://api-v2.themuse.com/' + api + '?page=0&descending=false',
-    async: false
-  })
-  data = d.responseJSON.results;
-  return data;
-};
-
-// Function for grabbing a random number between "start" and "end"
-var randBetween = function(start, end) {
-  return Math.floor(Math.random() * end) + start;
 };
 
 // Get today's date for the footer
@@ -65,6 +46,25 @@ var getPrettyDate = function(date_string){
   return pretty_date_string;
 };
 
+
+// Calls the Muse api by model-type
+var getMuse = function(api){
+  var data=[];
+  var d = $.ajax({
+    url: 'https://api-v2.themuse.com/' + api + '?page=0&descending=false',
+    async: false
+  })
+  data = d.responseJSON.results;
+  return data;
+};
+
+
+// Function for grabbing a random number between "start" and "end"
+var randBetween = function(start, end) {
+  return Math.floor(Math.random() * end) + start;
+};
+
+
 // Function to check if an object exists in a list
 function containsObject(obj, list) {
   var i;
@@ -85,17 +85,10 @@ var GLOBAL_NUM_JOBS       = 4;
 
 // Main
 $(document).ready(function() {
-
   var todayDate           = getPrettyDate();
   var todayPostList       = getMuse('posts');
   var todayJobsList       = getMuse('jobs');
   var todayCompaniesList  = getMuse('companies');
-
-
-  /* Check the user location - and set the location & weather if possible */
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(locationSuccessFunction, locationErrorFunction);
-  };
 
 
   /* Decide which article(s) to display */
@@ -150,11 +143,9 @@ $(document).ready(function() {
   for(i=0; i<todayJobs.length; i++){
     $("#job-title-{i}".replace("{i}",i)).text(todayJobs[i].name);
     $("#job-location-{i}".replace("{i}",i)).text(todayJobs[i].locations[0].name);
-    $("#job-apply-link-{i}".replace("{i}",i)).removeAttr("href");
-    $("#job-apply-link-{i}".replace("{i}",i)).click(function() {
-      window.open(todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
-    });
     $("#job-company-{i}".replace("{i}",i)).text(todayJobs[i].company.name);
+    $("#job-apply-link-{i}".replace("{i}",i)).attr("href", todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
+    $("#job-apply-link-{i}".replace("{i}",i)).attr("target", "_blank");
   };
 
 
@@ -163,9 +154,8 @@ $(document).ready(function() {
     $("#company-image-{i}".replace("{i}",i)).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-{i}".replace("{i}",i)).text(todayCompanies[i].name);
     $("#company-excerpt-{i}".replace("{i}",i)).text(todayCompanies[i].description.substring(0,157)+'...')
-    $("#company-jobs-{i}".replace("{i}",i)).click(function(){
-      window.open(todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
-    });
+    $("#company-jobs-{i}".replace("{i}",i)).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
+    $("#company-jobs-{i}".replace("{i}",i)).attr("target", "_blank");
   };
 
 });

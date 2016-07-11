@@ -13,7 +13,7 @@ function locationSuccessFunction(position) {
       var degF = Math.round((result.main.temp*9/5)-459.67)
       var degC = Math.round(result.main.temp - 273.15)
       $("#city").text(locName)
-      $("#temperature").text('\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + degF + '°F / ' + degC + 'C')
+      $("#temperature").text(degF + '°F / ' + degC + 'C')
     }
   })
 }

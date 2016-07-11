@@ -2,13 +2,10 @@
 function locationSuccessFunction(position) {
   var lat = position.coords.latitude;
   var lng = position.coords.longitude;
-  // console.log(lat, lng)
-
+  
   $.ajax({
     url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lng + '&appid=371c14f020dced602ec9e316e451bf07',
-    async: true,
     success: function(result) {
-      // console.log(result);
       var locName = result.name
       var degF = Math.round((result.main.temp*9/5)-459.67)
       var degC = Math.round(result.main.temp - 273.15)
@@ -17,6 +14,7 @@ function locationSuccessFunction(position) {
     }
   })
 }
+
 
 // If the location retrieval fails
 function locationErrorFunction(){
@@ -84,6 +82,8 @@ var GLOBAL_NUM_POSTS      = 1;
 var GLOBAL_NUM_COMPANIES  = 2;
 var GLOBAL_NUM_JOBS       = 4;
 
+
+// Main
 $(document).ready(function() {
 
   var todayDate           = getPrettyDate();
@@ -92,13 +92,12 @@ $(document).ready(function() {
   var todayCompaniesList  = getMuse('companies');
 
 
-  // Check the user location - and set the location & weather if possible
+  /* Check the user location - and set the location & weather if possible */
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(locationSuccessFunction, locationErrorFunction);
-  }
+  };
 
 
-  // var todayPost = todayPostList[randBetween(0, todayPostList.length-1)];
   /* Decide which article(s) to display */
   var todayPost = [];
   var i;
@@ -110,7 +109,7 @@ $(document).ready(function() {
       i--;
     }
   };
-  // console.log(todayPost);
+
 
   /* Decide which jobs to display */
   var todayJobs = [];
@@ -123,7 +122,7 @@ $(document).ready(function() {
       i--;
     }
   };
-  // console.log(todayJobs);
+
 
   /* Decide which companies to display */
   var todayCompanies = [];
@@ -136,63 +135,37 @@ $(document).ready(function() {
       i--;
     }
   };
-  // console.log(todayCompanies);
+
 
   /* Populate the Article section */
-  todayPost = todayPost[0];
+  todayPost = todayPost[0];  // there's only one post per pageload
   $("#article-title").text(todayPost.name);
-  $("#article-excerpt").text(todayPost.excerpt);
   $("#article-button").click(function() {
     window.open(todayPost.refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank');
   });
   $("#hero-image").attr('src', todayPost.refs.primary_image);
 
+
   /* Populate the Jobs sections */
-  $("#job-title-0").text(todayJobs[0].name);
-  $("#job-location-0").text(todayJobs[0].locations[0].name);
-  $("#job-apply-link-0").removeAttr("href");
-  $("#job-apply-link-0").click(function() {
-    window.open(todayJobs[0].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
-  });
-  $("#job-company-0").text(todayJobs[0].company.name);
+  for(i=0; i<todayJobs.length; i++){
+    $("#job-title-{i}".replace("{i}",i)).text(todayJobs[i].name);
+    $("#job-location-{i}".replace("{i}",i)).text(todayJobs[i].locations[0].name);
+    $("#job-apply-link-{i}".replace("{i}",i)).removeAttr("href");
+    $("#job-apply-link-{i}".replace("{i}",i)).click(function() {
+      window.open(todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
+    });
+    $("#job-company-{i}".replace("{i}",i)).text(todayJobs[i].company.name);
+  };
 
-  $("#job-title-1").text(todayJobs[1].name);
-  $("#job-location-1").text(todayJobs[1].locations[0].name);
-  $("#job-apply-link-1").removeAttr("href");
-  $("#job-apply-link-1").click(function() {
-    window.open(todayJobs[1].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
-  });
-  $("#job-company-1").text(todayJobs[1].company.name);
-
-  $("#job-title-2").text(todayJobs[2].name);
-  $("#job-location-2").text(todayJobs[2].locations[0].name);
-  $("#job-apply-link-2").removeAttr("href");
-  $("#job-apply-link-2").click(function() {
-    window.open(todayJobs[2].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
-  });
-  $("#job-company-2").text(todayJobs[2].company.name);
-
-  $("#job-title-3").text(todayJobs[3].name);
-  $("#job-location-3").text(todayJobs[3].locations[0].name);
-  $("#job-apply-link-3").removeAttr("href");
-  $("#job-apply-link-3").click(function() {
-    window.open(todayJobs[3].refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank')
-  });
-  $("#job-company-3").text(todayJobs[3].company.name);
 
   /* Populate the Companies sections */
-  $("#company-image-0").attr('src', todayCompanies[0].refs.f1_image);
-  $("#company-name-0").text(todayCompanies[0].name);
-  $("#company-excerpt-0").text(todayCompanies[0].description.substring(0,157)+'...')
-  $("#company-jobs-0").click(function(){
-    window.open(todayCompanies[0].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
-  });
-
-  $("#company-image-1").attr('src', todayCompanies[1].refs.f1_image);
-  $("#company-name-1").text(todayCompanies[1].name);
-  $("#company-excerpt-1").text(todayCompanies[1].description.substring(0,157)+'...')
-  $("#company-jobs-1").click(function(){
-    window.open(todayCompanies[1].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
-  });
+  for(i=0; i<todayCompanies.length; i++){
+    $("#company-image-{i}".replace("{i}",i)).attr('src', todayCompanies[i].refs.f1_image);
+    $("#company-name-{i}".replace("{i}",i)).text(todayCompanies[i].name);
+    $("#company-excerpt-{i}".replace("{i}",i)).text(todayCompanies[i].description.substring(0,157)+'...')
+    $("#company-jobs-{i}".replace("{i}",i)).click(function(){
+      window.open(todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS, '_blank')
+    });
+  };
 
 });

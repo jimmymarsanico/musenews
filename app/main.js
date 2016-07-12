@@ -1,8 +1,3 @@
-chrome.runtime.sendMessage ( {command: "getGeo"}, function (response) {
-    getWeather(response.geoLocation.lat, response.geoLocation.lon)
-} );
-
-
 // Get current weather based on user's latitude and longitude
 var getWeather = function(lat, lon){
   $.ajax({
@@ -157,5 +152,9 @@ $(document).ready(function() {
     $("#company-jobs-{i}".replace("{i}",i)).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
     $("#company-jobs-{i}".replace("{i}",i)).attr("target", "_blank");
   };
+
+  chrome.runtime.sendMessage ( {command: "getGeo"}, function (response) {
+      getWeather(response.geoLocation.lat, response.geoLocation.lon)
+  } );
 
 });

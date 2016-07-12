@@ -153,8 +153,13 @@ $(document).ready(function() {
     $("#company-jobs-{i}".replace("{i}",i)).attr("target", "_blank");
   };
 
-  chrome.runtime.sendMessage ( {command: "getGeo"}, function (response) {
-      getWeather(response.geoLocation.lat, response.geoLocation.lon)
+  navigator.geolocation.getCurrentPosition (function (position) {
+    getWeather(position.coords.latitude,position.coords.longitude)
   } );
+} );
 
-});
+  // chrome.runtime.sendMessage ( {command: "getGeo"}, function (response) {
+  //     getWeather(response.geoLocation.lat, response.geoLocation.lon)
+  // } );
+
+// });

@@ -19,7 +19,7 @@
 
   "content_scripts": [{
      "js": ["static/js/jquery/jquery-2.2.4.min.js","app/main.js"],
-     "matches": ["http://*/*","https://*/*"]
+     "matches": ["chrome://newtab"]
    }],
 
   "chrome_url_overrides" : {

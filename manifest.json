@@ -12,16 +12,6 @@
   	"128": "static/img/logo/CompanyMuseLogo_128.png"
    },
 
-  "background": {
-    "scripts":    ["app/eventPage.js"],
-    "persistent": false
-  },
-
-  "content_scripts": [{
-     "js": ["static/js/jquery/jquery-2.2.4.min.js","app/main.js"],
-     "matches": ["chrome://newtab"]
-   }],
-
   "chrome_url_overrides" : {
     "newtab": "app/dashboard.html"
   },
@@ -30,11 +20,8 @@
     "activeTab",
     "geolocation",
     "chrome://favicon/",
-  	"http://*.google.com/",
-  	"https://*.google.com/",
-  	"background",
   	"tabs",
-  	"http://*/*",
-  	"https://*/*"
+    "http://www.themuse.com/api/location"
+    "https://www.themuse.com/api/location"
   ]
 }

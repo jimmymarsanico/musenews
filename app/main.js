@@ -100,7 +100,7 @@ var postSuccess = function(todayPostList) {
       i--;
     }
   };
-  
+
   // Populate the Article section
   todayPost = todayPost[0];  // there's only one post per pageload
   $("#article-title").text(todayPost.name);
@@ -127,11 +127,11 @@ var jobSuccess = function(todayJobsList) {
 
   // Populate the Jobs sections
   for(i=0; i<todayJobs.length; i++){
-    $("#job-title-{i}".replace("{i}",i)).text(todayJobs[i].name);
-    $("#job-location-{i}".replace("{i}",i)).text(todayJobs[i].locations[0].name);
-    $("#job-company-{i}".replace("{i}",i)).text(todayJobs[i].company.name);
-    $("#job-apply-link-{i}".replace("{i}",i)).attr("href", todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
-    $("#job-apply-link-{i}".replace("{i}",i)).attr("target", "_blank");
+    $("#job-title-" + i).text(todayJobs[i].name);
+    $("#job-location-" + i).text(todayJobs[i].locations[0].name);
+    $("#job-company-" + i).text(todayJobs[i].company.name);
+    $("#job-apply-link-" + i).attr("href", todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
+    $("#job-apply-link-" + i).attr("target", "_blank");
   };
 };
 
@@ -151,11 +151,11 @@ var companySuccess = function(todayCompaniesList) {
 
   // Populate the Companies sections
   for(i=0; i<todayCompanies.length; i++){
-    $("#company-image-{i}".replace("{i}",i)).attr('src', todayCompanies[i].refs.f1_image);
-    $("#company-name-{i}".replace("{i}",i)).text(todayCompanies[i].name);
-    $("#company-excerpt-{i}".replace("{i}",i)).text(todayCompanies[i].description.substring(0,157)+'...')
-    $("#company-jobs-{i}".replace("{i}",i)).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
-    $("#company-jobs-{i}".replace("{i}",i)).attr("target", "_blank");
+    $("#company-image-" + i).attr('src', todayCompanies[i].refs.f1_image);
+    $("#company-name-" + i).text(todayCompanies[i].name);
+    $("#company-excerpt-" + i).text(todayCompanies[i].description.substring(0,157)+'...')
+    $("#company-jobs-" + i).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
+    $("#company-jobs-" + i).attr("target", "_blank");
   };
 };
 

@@ -21,7 +21,7 @@
     "geolocation",
     "chrome://favicon/",
   	"tabs",
-    "http://www.themuse.com/api/location"
+    "http://www.themuse.com/api/location",
     "https://www.themuse.com/api/location"
   ]
 }

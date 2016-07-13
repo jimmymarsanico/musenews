@@ -22,8 +22,6 @@ var getWeather = function(lat, lon){
       $("#temperature").text(degF + '°F / ' + degC + 'C')
       if($("#city").text() == '') {
           $("#city").text(result.name)
-      } else {
-        // console.log($("#city").text());
       };
     }
   })

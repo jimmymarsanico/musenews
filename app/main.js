@@ -1,14 +1,30 @@
+// Call the Muse's location API
+var getLocation = function(){
+  $.ajax({
+    url: 'https://www.themuse.com/api/location',
+    success: function(result) {
+      try {
+        $("#city").text(result.closest_location);
+      } catch(e) {
+        console.log(e.message);  // log any exceptions
+      };
+    }
+  });
+}
+
 // Get current weather based on user's latitude and longitude
 var getWeather = function(lat, lon){
   $.ajax({
     url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=371c14f020dced602ec9e316e451bf07',
-    async: true,
     success: function(result) {
-      var locName = result.name
       var degF = Math.round((result.main.temp*9/5)-459.67)
       var degC = Math.round(result.main.temp - 273.15)
-      $("#city").text(locName)
       $("#temperature").text(degF + '°F / ' + degC + 'C')
+      if($("#city").text() == '') {
+          $("#city").text(result.name)
+      } else {
+        // console.log($("#city").text());
+      };
     }
   })
 };
@@ -43,14 +59,14 @@ var getPrettyDate = function(date_string){
 
 
 // Calls the Muse api by model-type
-var getMuse = function(api){
-  var data=[];
-  var d = $.ajax({
+var getMuse = function(api, cb){
+  $.ajax({
     url: 'https://api-v2.themuse.com/' + api + '?page=0&descending=false',
-    async: false
+    async: true,
+    success: function(d) {
+      cb(d.results)
+    }
   })
-  data = d.responseJSON.results;
-  return data;
 };
 
 
@@ -61,7 +77,7 @@ var randBetween = function(start, end) {
 
 
 // Function to check if an object exists in a list
-function containsObject(obj, list) {
+var containsObject = function(obj, list) {
   var i;
   for (i = 0; i < list.length; i++) {
     if (list[i] === obj) {
@@ -71,22 +87,9 @@ function containsObject(obj, list) {
   return false;
 }
 
-
-var MUSENEWS_UTM_PARAMS = '?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral'
-var GLOBAL_NUM_POSTS      = 1;
-var GLOBAL_NUM_COMPANIES  = 2;
-var GLOBAL_NUM_JOBS       = 4;
-
-
-// Main
-$(document).ready(function() {
-  var todayDate           = getPrettyDate();
-  var todayPostList       = getMuse('posts');
-  var todayJobsList       = getMuse('jobs');
-  var todayCompaniesList  = getMuse('companies');
-
-
-  /* Decide which article(s) to display */
+// Success function for post call
+var postSuccess = function(todayPostList) {
+  // Decide which article(s) to display
   var todayPost = [];
   var i;
   for(i=0; i<GLOBAL_NUM_POSTS; i++){
@@ -97,9 +100,20 @@ $(document).ready(function() {
       i--;
     }
   };
+  
+  // Populate the Article section
+  todayPost = todayPost[0];  // there's only one post per pageload
+  $("#article-title").text(todayPost.name);
+  $("#article-button").click(function() {
+    window.open(todayPost.refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank');
+  });
+  $("#hero-image").attr('src', todayPost.refs.primary_image);
 
+};
 
-  /* Decide which jobs to display */
+// Success function for jobs call
+var jobSuccess = function(todayJobsList) {
+  // Decide which jobs to display
   var todayJobs = [];
   var i;
   for(i=0; i<GLOBAL_NUM_JOBS; i++){
@@ -111,8 +125,19 @@ $(document).ready(function() {
     }
   };
 
+  // Populate the Jobs sections
+  for(i=0; i<todayJobs.length; i++){
+    $("#job-title-{i}".replace("{i}",i)).text(todayJobs[i].name);
+    $("#job-location-{i}".replace("{i}",i)).text(todayJobs[i].locations[0].name);
+    $("#job-company-{i}".replace("{i}",i)).text(todayJobs[i].company.name);
+    $("#job-apply-link-{i}".replace("{i}",i)).attr("href", todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
+    $("#job-apply-link-{i}".replace("{i}",i)).attr("target", "_blank");
+  };
+};
 
-  /* Decide which companies to display */
+// Success function for companies call
+var companySuccess = function(todayCompaniesList) {
+  // Decide which companies to display
   var todayCompanies = [];
   var i;
   for(i=0; i<GLOBAL_NUM_COMPANIES; i++){
@@ -124,27 +149,7 @@ $(document).ready(function() {
     }
   };
 
-
-  /* Populate the Article section */
-  todayPost = todayPost[0];  // there's only one post per pageload
-  $("#article-title").text(todayPost.name);
-  $("#article-button").click(function() {
-    window.open(todayPost.refs.landing_page+MUSENEWS_UTM_PARAMS, '_blank');
-  });
-  $("#hero-image").attr('src', todayPost.refs.primary_image);
-
-
-  /* Populate the Jobs sections */
-  for(i=0; i<todayJobs.length; i++){
-    $("#job-title-{i}".replace("{i}",i)).text(todayJobs[i].name);
-    $("#job-location-{i}".replace("{i}",i)).text(todayJobs[i].locations[0].name);
-    $("#job-company-{i}".replace("{i}",i)).text(todayJobs[i].company.name);
-    $("#job-apply-link-{i}".replace("{i}",i)).attr("href", todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
-    $("#job-apply-link-{i}".replace("{i}",i)).attr("target", "_blank");
-  };
-
-
-  /* Populate the Companies sections */
+  // Populate the Companies sections
   for(i=0; i<todayCompanies.length; i++){
     $("#company-image-{i}".replace("{i}",i)).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-{i}".replace("{i}",i)).text(todayCompanies[i].name);
@@ -152,14 +157,23 @@ $(document).ready(function() {
     $("#company-jobs-{i}".replace("{i}",i)).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
     $("#company-jobs-{i}".replace("{i}",i)).attr("target", "_blank");
   };
+};
 
+var MUSENEWS_UTM_PARAMS   = '?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral'
+var GLOBAL_NUM_POSTS      = 1;
+var GLOBAL_NUM_COMPANIES  = 2;
+var GLOBAL_NUM_JOBS       = 4;
+
+
+// Main
+$(document).ready(function() {
+  getPrettyDate();
+  getMuse('posts', postSuccess);
+  getMuse('jobs', jobSuccess);
+  getMuse('companies', companySuccess);
+  getLocation();
   navigator.geolocation.getCurrentPosition (function (position) {
     getWeather(position.coords.latitude,position.coords.longitude)
   } );
+
 } );
-
-  // chrome.runtime.sendMessage ( {command: "getGeo"}, function (response) {
-  //     getWeather(response.geoLocation.lat, response.geoLocation.lon)
-  // } );
-
-// });

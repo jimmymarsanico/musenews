@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <script src="/static/js/jquery/jquery-2.2.4.min.js"></script>
     <script src="main.js"></script>
     <title class="page-title">MuseNews</title>
@@ -12,145 +12,142 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../static/css/reset.css" media="screen, projection" rel="stylesheet">
     <link href="../static/css/styling.css" media="screen, projection" rel="stylesheet">
-	</head>
-	<body>
-		<main class="main-container container1500 clearfix">
-			<section class="article">
-				<div class="gradient"></div>
-				<div class="bg-image">
-					<img id="hero-image" src="../static/img/hero.jpg">
-				</div>
-				<div class="article-copy">
-					<h1 id="article-title">Making Your Own Happiness</h1>
-					<h2 id="article-excerpt">Why is it that, even when all our ducks are in a row, we still don't always feel happy</h2>
-					<button id="article-button">Read More</button>
-				</div>
-			</section>
-			<div class="container1200">
-				<section class="jobs">
-					<h1>Jobs</h1>
-					<ul>
-						<li>
-							<ul class="indiv-job">
-	            				<li class="job-title">
-									<h4 id="job-title-0">Director of Digital Operations</h4>
-								</li>
-								<li id="job-location-0" class="job-location">New York City Metro Area</li>
-								<li class="apply-job">
-									<a id="job-apply-link-0" class="apply-button" href="https://www.themuse.com/jobs/wework/director-of-digital-operations-3d2cb8?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral">Apply</a>
-								</li>
-								<li class="job-company">
-									<h5 id="job-company-0">WeWork</h5>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<ul class="indiv-job">
-	              				<li class="job-title">
-									<h4 id="job-title-1">Director of Digital Operations</h4>
-								</li>
-								<li id="job-location-1" class="job-location">New York City Metro Area</li>
-								<li class="apply-job">
-									<a id="job-apply-link-1" class="apply-button" href="https://www.themuse.com/jobs/wework/director-of-digital-operations-3d2cb8?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral">Apply</a>
-								</li>
-								<li class="job-company">
-									<h5 id="job-company-1">WeWork</h5>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<ul class="indiv-job">
-	              				<li class="job-title">
-									<h4 id="job-title-2">Director of Digital Operations</h4>
-								</li>
-								<li id="job-location-2" class="job-location">New York City Metro Area</li>
-								<li class="apply-job">
-									<a id="job-apply-link-2" class="apply-button" href="https://www.themuse.com/jobs/wework/director-of-digital-operations-3d2cb8?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral">Apply</a>
-								</li>
-								<li class="job-company">
-									<h5 id="job-company-2">WeWork</h5>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<ul class="indiv-job">
-	              				<li class="job-title">
-									<h4 id="job-title-3">Director of Digital Operations</h4>
-								</li>
-								<li id="job-location-3" class="job-location">New York City Metro Area</li>
-								<li class="apply-job">
-									<a id="job-apply-link-3" class="apply-button" href="https://www.themuse.com/jobs/wework/director-of-digital-operations-3d2cb8?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral">Apply</a>
-								</li>
-								<li class="job-company">
-									<h5 id="job-company-3">WeWork</h5>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="companies">
-					<h1>Companies</h1>
-						<ul>
-							<li>
-								<div class="clearfix">
-									<img id="company-image-0" src="../static/img/company.jpg">
-									<div class="company-copy">
-										<h3 id="company-name-0" class="company-name">Alphaserve Technologies</h3>
-										<p id="company-excerpt-0">By taking care of companies' IT and infrastructure needs, Alphaserve Technologies helps clients free up their time so they can focus on the projects that matter most.</p>
-                    <a id="company-jobs-0">See Available Jobs</a>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="clearfix">
-									<img id="company-image-1" src="../static/img/company.jpg">
-									<div class="company-copy">
-                    <h3 id="company-name-1" class="company-name">Alphaserve Technologies</h3>
-										<p id="company-excerpt-1">By taking care of companies' IT and infrastructure needs, Alphaserve Technologies helps clients free up their time so they can focus on the projects that matter most.</p>
-                    <a id="company-jobs-1">See Available Jobs</a>
-									</div>
-								</div>
-							</li>
-					</ul>
-				</section>
-			</div>
-		</main>
+    </head>
+    <body>
+        <main class="main-container container1500 clearfix">
+            <section class="article">
+                <div class="gradient"></div>
+                <div class="bg-image">
+                    <img id="hero-image" src="../static/img/hero.jpg">
+                </div>
+                <div class="clearfix">
+                    <div class="article-copy">
+                        <h1 id="article-title"></h1>
+                        <button id="article-button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </section>
+            <div class="container1200">
+                <section class="jobs">
+                    <table>
+                        <tr>
+                            <th>
+                                <h1>Jobs</h1>
+                            </th>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-0"></h4>
+                            </td>
+                            <td id="job-location-0" class="job-location"></li>
+                            <td class="job-company">
+                                <h5 id="job-company-0"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-0" class="apply-button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-1"></h4>
+                            </td>
+                            <td id="job-location-1" class="job-location"></td>
+                            <td class="job-company">
+                                <h5 id="job-company-1"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-1" class="apply-button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-2"></h4>
+                            </td>
+                            <td id="job-location-2" class="job-location"></td>
+                            <td class="job-company">
+                                <h5 id="job-company-2"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-2" class="apply-button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-3"></h4>
+                            </td>
+                            <td id="job-location-3" class="job-location"></td>
+                            <td class="job-company">
+                                <h5 id="job-company-3"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-3" class="apply-button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <section class="companies">
+                    <h1>Companies</h1>
+                    <ul>
+                        <li>
+                            <div class="clearfix">
+                                <img id="company-image-0" src="../static/img/company.jpg">
+                                <div class="company-copy">
+                                    <h3 id="company-name-0" class="company-name"></h3>
+                                    <p id="company-excerpt-0"></p>
+                                    <a id="company-jobs-0">See Available Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clearfix">
+                                <img id="company-image-1" src="../static/img/company.jpg">
+                                <div class="company-copy">
+                                    <h3 id="company-name-1" class="company-name"></h3>
+                                    <p id="company-excerpt-1"></p>
+                                    <a id="company-jobs-1">See Available Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
     <footer class="clearfix">
-			<a class="muse-logo" href="https://www.themuse.com?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral">
-				<img src="../static/img/logo-white.svg">
-			</a>
-			<ul class="gen-info">
-        		<li id="current-date">June 9, 2016</li>
-        		<li id="city"></li>
-				<li id="temperature"></li>
-			</ul>
-			<ul class="social">
-				<li>
-		        	<a href="http://www.facebook.com/thedailymuse?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
-		        		<i class="fa fa-facebook"></i>
-		        	</a>
-		        </li>
-		        <li>
-		        	<a href="https://www.linkedin.com/company/the-daily-muse?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
-		        		<i class="fa fa-linkedin"></i>
-		        	</a>
-		        </li>
-		        <li>
-		        	<a href="http://twitter.com/dailymuse/?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
-		        		<i class="fa fa-twitter"></i>
-		        	</a>
-		        </li>
-		        <li>
-		        	<a href="http://pinterest.com/thedailymuse/?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
-		        		<i class="fa fa-pinterest-p"></i>
-		        	</a>
-		        </li>
-		        <li>
-		        	<a href="http://instagram.com/themuse/?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
-		        		<i class="fa fa-instagram"></i>
-		        	</a>
-		        </li>
-			</ul>
-		</footer>
-	</body>
+            <a class="muse-logo" href="https://www.themuse.com?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral">
+                <img src="../static/img/logo/muselogo.svg">
+            </a>
+            <ul class="gen-info">
+                <li id="current-date">June 9, 2016</li>
+                <li id="city"></li>
+                <li id="temperature"></li>
+            </ul>
+            <ul class="social">
+                <li>
+                    <a href="http://www.facebook.com/thedailymuse?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/the-daily-muse?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://twitter.com/dailymuse/?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://pinterest.com/thedailymuse/?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
+                        <i class="fa fa-pinterest-p"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://instagram.com/themuse/?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </body>
 </html>

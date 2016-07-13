@@ -15,7 +15,8 @@ var getLocation = function(){
 // Get current weather based on user's latitude and longitude
 var getWeather = function(lat, lon){
   $.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=371c14f020dced602ec9e316e451bf07',
+    url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat +
+      '&lon=' + lon + '&appid=371c14f020dced602ec9e316e451bf07',
     success: function(result) {
       var degF = Math.round((result.main.temp*9/5)-459.67)
       var degC = Math.round(result.main.temp - 273.15)
@@ -52,7 +53,8 @@ var getPrettyDate = function(date_string){
     'year': String(year)
   };
 
-  pretty_date_string = replacements['month'] + ' ' + replacements['day'] + ', ' + replacements['year'];
+  pretty_date_string = replacements['month'] + ' ' + replacements['day'] +
+    ', ' + replacements['year'];
   $("#current-date").text(pretty_date_string)
   return pretty_date_string;
 };
@@ -87,6 +89,69 @@ var containsObject = function(obj, list) {
   return false;
 }
 
+
+// Adds HTML to the jobs section
+function addJobRow(i) {
+  var table = document.getElementById('jobs-table');
+  var row = table.insertRow(-1);
+  row.className = 'indiv-job';
+
+  var jobTitle = row.insertCell(0);
+  var jobLocation = row.insertCell(1);
+  var jobCompany = row.insertCell(2);
+  var jobApply = row.insertCell(3);
+
+  jobTitle.className = 'job-title';
+  jobTitle.innerHTML = '<h4 id="job-title-' + i + '"></h4>';
+
+  jobLocation.id = 'job-location-' + i;
+  jobLocation.className = 'job-location';
+
+  jobCompany.class = 'job-company';
+  jobCompany.innerHTML = '<h5 id="job-company-' + i + '"></h5>';
+
+  jobApply.class = 'apply-job';
+  jobApply.innerHTML = '<a id="job-apply-link-' + i +
+    '" class="apply-button" href="">More Info \
+    <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>';
+};
+
+
+// Adds HTML to the companies section
+function addCompanyRow(i) {
+  var list = document.getElementById('companies-table');
+  var listItem = document.createElement('li');
+
+  var companyDiv = document.createElement('div');
+  companyDiv.className = 'clearfix';
+
+  var companyImg = document.createElement('img');
+  companyImg.id = 'company-image-' + i;
+
+  var companyCopy = document.createElement('div');
+  companyCopy.className = 'company-copy';
+
+  var companyName = document.createElement('h3');
+  companyName.id = 'company-name-' + i;
+  companyName.className = 'company-name';
+
+  var companyExp = document.createElement('p');
+  companyExp.id = 'company-excerpt-' + i;
+
+  var companyJobs = document.createElement('a');
+  companyJobs.id = 'company-jobs-' + i;
+  companyJobs.innerHTML = 'See Available Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
+
+  companyCopy.appendChild(companyName);
+  companyCopy.appendChild(companyExp);
+  companyCopy.appendChild(companyJobs);
+  companyDiv.appendChild(companyImg);
+  companyDiv.appendChild(companyCopy);
+  listItem.appendChild(companyDiv);
+  list.appendChild(listItem);
+};
+
+
 // Success function for post call
 var postSuccess = function(todayPostList) {
   // Decide which article(s) to display
@@ -111,6 +176,7 @@ var postSuccess = function(todayPostList) {
 
 };
 
+
 // Success function for jobs call
 var jobSuccess = function(todayJobsList) {
   // Decide which jobs to display
@@ -127,13 +193,16 @@ var jobSuccess = function(todayJobsList) {
 
   // Populate the Jobs sections
   for(i=0; i<todayJobs.length; i++){
+    addJobRow(i);
     $("#job-title-" + i).text(todayJobs[i].name);
     $("#job-location-" + i).text(todayJobs[i].locations[0].name);
     $("#job-company-" + i).text(todayJobs[i].company.name);
-    $("#job-apply-link-" + i).attr("href", todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
+    $("#job-apply-link-" + i).attr("href",
+      todayJobs[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
     $("#job-apply-link-" + i).attr("target", "_blank");
   };
 };
+
 
 // Success function for companies call
 var companySuccess = function(todayCompaniesList) {
@@ -151,6 +220,7 @@ var companySuccess = function(todayCompaniesList) {
 
   // Populate the Companies sections
   for(i=0; i<todayCompanies.length; i++){
+    addCompanyRow(i);
     $("#company-image-" + i).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-" + i).text(todayCompanies[i].name);
     $("#company-excerpt-" + i).text(todayCompanies[i].description.substring(0,157)+'...')

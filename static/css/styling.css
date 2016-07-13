@@ -52,6 +52,10 @@ ul li {
     display: inline-block;
 }
 
+a {
+    text-decoration: none;
+}
+
 a:hover,
 button:hover {
     cursor: pointer;
@@ -245,7 +249,7 @@ button:hover {
 }
 
 .apply-job a:hover {
-    color: #382d5b;
+    color: #000;
     border: 2px solid #382d5b;
 }
 
@@ -308,6 +312,10 @@ button:hover {
     font-family: 'ProximaSemibold',Arial,sans-serif;
 }
 
+.company-copy a:hover {
+    color: #34a0bc;
+}
+
 /** footer styling **/ 
 footer {
     background-color: #333;
@@ -354,6 +362,10 @@ footer {
     line-height: 26px;
     text-align: center;
     margin: 0 5px;
+}
+
+.social i:hover {
+    background-color: #34a0bc;
 }
 
 /************************* responsive *************************/

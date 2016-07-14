@@ -1,7 +1,7 @@
 // Call the Muse's location API
 var getLocation = function(){
   $.ajax({
-    url: 'https://www.themuse.com/api/location',
+    url: 'https://www.themuse.com/api/location?api_key=03c6ca71e6ac95326013154b0a458fac937c82bd66aa9e48e86d708f06ef27af',
     success: function(result) {
       try {
         $("#city").text(result.closest_location);
@@ -61,7 +61,7 @@ var getPrettyDate = function(date_string){
 // Calls the Muse api by model-type
 var getMuse = function(api, cb){
   $.ajax({
-    url: 'https://api-v2.themuse.com/' + api + '?page=0&descending=false',
+    url: 'https://api-v2.themuse.com/' + api + '?page=0&descending=false&api_key=03c6ca71e6ac95326013154b0a458fac937c82bd66aa9e48e86d708f06ef27af',
     async: true,
     success: function(d) {
       cb(d.results)
@@ -136,12 +136,18 @@ function addCompanyRow(i) {
   var companyExp = document.createElement('p');
   companyExp.id = 'company-excerpt-' + i;
 
+  var companyLink = document.createElement('a');
+  companyLink.id = 'company-link-' + i;
+  companyLink.innerHTML = 'See Company Profile <i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
+
   var companyJobs = document.createElement('a');
   companyJobs.id = 'company-jobs-' + i;
   companyJobs.innerHTML = 'See Available Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
 
   companyCopy.appendChild(companyName);
   companyCopy.appendChild(companyExp);
+  companyCopy.appendChild(companyLink);
+  companyCopy.appendChild(document.createElement('br')); // remove after css fix
   companyCopy.appendChild(companyJobs);
   companyDiv.appendChild(companyImg);
   companyDiv.appendChild(companyCopy);
@@ -222,12 +228,14 @@ var companySuccess = function(todayCompaniesList) {
     $("#company-image-" + i).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-" + i).text(todayCompanies[i].name);
     var compDesc = todayCompanies[i].description;
-    if(compDesc.length > 157) {
-      compDesc = compDesc.substring(0,157)+'...'
+    if(compDesc.length > 137) {
+      compDesc = compDesc.substring(0,137)+'...'
     };
     $("#company-excerpt-" + i).text(compDesc);
     $("#company-jobs-" + i).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
     $("#company-jobs-" + i).attr("target", "_blank");
+    $("#company-link-" + i).attr("href", todayCompanies[i].refs.landing_page+MUSENEWS_UTM_PARAMS);
+    $("#company-link-" + i).attr("target", "_blank");
   };
 };
 

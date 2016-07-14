@@ -221,7 +221,11 @@ var companySuccess = function(todayCompaniesList) {
     addCompanyRow(i);
     $("#company-image-" + i).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-" + i).text(todayCompanies[i].name);
-    $("#company-excerpt-" + i).text(todayCompanies[i].description.substring(0,157)+'...')
+    var compDesc = todayCompanies[i].description;
+    if(compDesc.length > 157) {
+      compDesc = compDesc.substring(0,157)+'...'
+    };
+    $("#company-excerpt-" + i).text(compDesc);
     $("#company-jobs-" + i).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);
     $("#company-jobs-" + i).attr("target", "_blank");
   };

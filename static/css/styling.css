@@ -56,6 +56,18 @@ a {
     text-decoration: none;
 }
 
+.button {
+    padding: 12px 25px;
+    line-height: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "ProximaSemibold", Helvetica, sans-serif;
+    font-size: 10px;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
 a:hover,
 button:hover {
     cursor: pointer;
@@ -68,7 +80,7 @@ button:hover {
 
 .container1500 {
     max-width: 1500px;
-    margin: 0 auto;
+    margin: 0 auto 50px;
 }
 
 /** article styling **/
@@ -102,14 +114,8 @@ button:hover {
     color: #fff;
     padding: 12px 0px;
     width: 250px;
-    line-height: 1.2em;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Proxima", Helvetica, sans-serif;
     font-size: 14px;
     border: none;
-    border-radius: 25px;
-    letter-spacing: 1px;
     margin-top: 15px;
 }
 
@@ -166,10 +172,6 @@ button:hover {
     border-right: 1px solid #ebebeb;
 }
 
-.jobs tr:nth-of-type(1) {
-    border: none;
-}
-
 .jobs table {
     text-align: left;
     max-width: 650px;
@@ -193,7 +195,7 @@ button:hover {
     border-bottom: 1px solid #e2dbdb;
 }
 
-.jobs tr:nth-of-type(5) {
+.jobs tr:last-of-type {
     border: none;
 }
 
@@ -226,26 +228,32 @@ button:hover {
     text-align: left;
 }
 
-.jobs h1,
-.companies h1 {
+.jobs h2,
+.companies h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 45px;
+    font-size: 35px;
     padding: 20px 0px;
+    text-align: left;
+}
+
+.companies a.search-all,
+.jobs a.search-all {
+    color: #fff;
+    font-size: 12px;
+    width: 350px;
+    background-color: #3852d4;
+    margin: 0px auto 100px;
+
+}
+
+.jobs h2 {
+    padding-left: 20px;
 }
 
 .apply-button {
     background-color: transparent;
     color: #554589;
-    padding: 12px 25px;
-    line-height: 1.2em;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "ProximaSemibold", Helvetica, sans-serif;
-    font-size: 10px;
     border: 2px solid #554589;
-    border-radius: 25px;
-    letter-spacing: 1px;
-    margin-top: 15px;
 }
 
 .apply-job a:hover {
@@ -259,16 +267,18 @@ button:hover {
     float: right;
     width: 50%;
     padding-bottom: 100px;
+    text-align: center;
 }
 
-.companies h1 {
+.companies h2 {
     width: 70%;
     margin: 0 auto;
 }
 
 .companies > ul {
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 50px;
+    text-align: left;
 }
 
 .companies > ul > li {
@@ -290,6 +300,7 @@ button:hover {
     width: 60%;
     padding-left: 20px;
 }
+
 
 .company-copy h3 {
     font-weight: 700;
@@ -371,7 +382,7 @@ footer {
 /************************* responsive *************************/
 @media (max-width: 1350px) {
     .companies > ul,
-    .companies h1 {
+    .companies h2 {
         width: 95%;
     }
 

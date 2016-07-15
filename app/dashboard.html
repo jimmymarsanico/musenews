@@ -14,7 +14,7 @@
     <link href="../static/css/styling.css" media="screen, projection" rel="stylesheet">
     </head>
     <body>
-        <main class="main-container container1500 clearfix">
+        <main class="main-container container1500">
             <section class="article">
                 <div class="gradient"></div>
                 <div class="bg-image">
@@ -23,23 +23,90 @@
                 <div class="clearfix">
                     <div class="article-copy">
                         <h1 id="article-title"></h1>
-                        <button id="article-button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                        <button id="article-button" class="button">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </section>
-            <div class="container1200">
+            <div class="container1200 clearfix">
                 <section class="jobs">
+                    <h2>Fresh Jobs to Check Out</h2>
                     <table id="jobs-table">
-                        <tr>
-                            <th>
-                                <h1>Jobs</h1>
-                            </th>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-0"></h4>
+                            </td>
+                            <td id="job-location-0" class="job-location"></li>
+                            <td class="job-company">
+                                <h5 id="job-company-0"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-0" class="apply-button button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-1"></h4>
+                            </td>
+                            <td id="job-location-1" class="job-location"></td>
+                            <td class="job-company">
+                                <h5 id="job-company-1"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-1" class="apply-button button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-2"></h4>
+                            </td>
+                            <td id="job-location-2" class="job-location"></td>
+                            <td class="job-company">
+                                <h5 id="job-company-2"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-2" class="apply-button button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="indiv-job">
+                            <td class="job-title">
+                                <h4 id="job-title-3"></h4>
+                            </td>
+                            <td id="job-location-3" class="job-location"></td>
+                            <td class="job-company">
+                                <h5 id="job-company-3"></h5>
+                            </td>
+                            <td class="apply-job">
+                                <a id="job-apply-link-3" class="apply-button button" href="">More Info <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </td>
                         </tr>
                     </table>
+                    <a href= "http://www.themuse.com/jobs" class="search-all button">See All Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </section>
-                <section class="companies">
-                    <h1>Companies</h1>
-                    <ul id="companies-table"></ul>
+                <section class="companies clearfix">
+                    <h2>Companies Hiring Now</h2>
+                    <ul id="companies-table">
+                        <li>
+                            <div class="clearfix">
+                                <img id="company-image-0" src="../static/img/company.jpg">
+                                <div class="company-copy">
+                                    <h3 id="company-name-0" class="company-name"></h3>
+                                    <p id="company-excerpt-0"></p>
+                                    <a id="company-jobs-0">See Available Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clearfix">
+                                <img id="company-image-1" src="../static/img/company.jpg">
+                                <div class="company-copy">
+                                    <h3 id="company-name-1" class="company-name"></h3>
+                                    <p id="company-excerpt-1"></p>
+                                    <a id="company-jobs-1">See Available Jobs <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="http://www.themuse.com/companies" class="search-all button">See All Companies <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </section>
             </div>
         </main>

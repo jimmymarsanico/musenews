@@ -5,13 +5,8 @@ The MuseNews extension is a NewTab replacement that gives you a daily snippet of
 Please visit the Chrome Web Store and search for **MuseNews** to find our extension.  Or go directly [here]() to download and install.
 
 ## Known bugs to fix
-* GeoLocation permissions pop up on multiple webpages.
+* 
 
 ## Further development & work
-* Continue working on reactive design for multiple monitor sizes.
-* Replace GeoLocation lookup from weather store to Google API.
-* Add a weather toggle button for °F vs C.
-* Add links to company images -> profile pages.
-* Change the `onHover()` action for the companies' *See Available Jobs* link, the company images, and the jobs apply links.
-* *Maybe* add some action to the browser button that defaults to menu bar.
+* Implement chromeStorage for keeping same-day results throughout the day (or other expected interval: 6 hours, etc).
 * Update the Chrome Web Store listing for more photos, screenshots, etc.

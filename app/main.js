@@ -1,3 +1,9 @@
+// CONSTANTS 
+var MUSENEWS_UTM_PARAMS   = '?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral'
+var GLOBAL_NUM_POSTS      = 1;
+var GLOBAL_NUM_COMPANIES  = 2;
+var GLOBAL_NUM_JOBS       = 4;
+
 // Call the Muse's location API
 var getLocation = function(){
   $.ajax({
@@ -78,8 +84,7 @@ var randBetween = function(start, end) {
 
 // Function to check if an object exists in a list
 var containsObject = function(obj, list) {
-  var i;
-  for (i = 0; i < list.length; i++) {
+  for (var i = 0; i < list.length; i++) {
     if (list[i] === obj) {
         return true;
     }
@@ -136,9 +141,9 @@ function addCompanyRow(i) {
   var companyExp = document.createElement('p');
   companyExp.id = 'company-excerpt-' + i;
 
-  var companyLink = document.createElement('a');
-  companyLink.id = 'company-link-' + i;
-  companyLink.innerHTML = 'See Company Profile <i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
+  // var companyLink = document.createElement('a');
+  // companyLink.id = 'company-link-' + i;
+  // companyLink.innerHTML = 'See Company Profile <i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
 
   var companyJobs = document.createElement('a');
   companyJobs.id = 'company-jobs-' + i;
@@ -146,7 +151,7 @@ function addCompanyRow(i) {
 
   companyCopy.appendChild(companyName);
   companyCopy.appendChild(companyExp);
-  companyCopy.appendChild(companyLink);
+  // companyCopy.appendChild(companyLink);
   companyCopy.appendChild(document.createElement('br')); // remove after css fix
   companyCopy.appendChild(companyJobs);
   companyDiv.appendChild(companyImg);
@@ -160,8 +165,7 @@ function addCompanyRow(i) {
 var postSuccess = function(todayPostList) {
   // Decide which article(s) to display
   var todayPost = [];
-  var i;
-  for(i=0; i<GLOBAL_NUM_POSTS; i++){
+  for(var i=0; i<GLOBAL_NUM_POSTS; i++){
     tp = todayPostList[randBetween(0, todayPostList.length-1)];
     if(!containsObject(tp, todayPost)){
       todayPost.push(tp)
@@ -185,8 +189,7 @@ var postSuccess = function(todayPostList) {
 var jobSuccess = function(todayJobsList) {
   // Decide which jobs to display
   var todayJobs = [];
-  var i;
-  for(i=0; i<GLOBAL_NUM_JOBS; i++){
+  for(var i=0; i<GLOBAL_NUM_JOBS; i++){
     tj = todayJobsList[randBetween(0, todayJobsList.length-1)];
     if(!containsObject(tj, todayJobs)){
       todayJobs.push(tj)
@@ -196,8 +199,8 @@ var jobSuccess = function(todayJobsList) {
   };
 
   // Populate the Jobs sections
-  for(i=0; i<todayJobs.length; i++){
-    addJobRow(i);
+  for(var i=0; i<todayJobs.length; i++){
+    // addJobRow(i);
     $("#job-title-" + i).text(todayJobs[i].name);
     $("#job-location-" + i).text(todayJobs[i].locations[0].name);
     $("#job-company-" + i).text(todayJobs[i].company.name);
@@ -212,8 +215,7 @@ var jobSuccess = function(todayJobsList) {
 var companySuccess = function(todayCompaniesList) {
   // Decide which companies to display
   var todayCompanies = [];
-  var i;
-  for(i=0; i<GLOBAL_NUM_COMPANIES; i++){
+  for(var i=0; i<GLOBAL_NUM_COMPANIES; i++){
     tc = todayCompaniesList[randBetween(0, todayCompaniesList.length-1)];
     if(!containsObject(tc, todayCompanies)){
       todayCompanies.push(tc)
@@ -223,8 +225,8 @@ var companySuccess = function(todayCompaniesList) {
   };
 
   // Populate the Companies sections
-  for(i=0; i<todayCompanies.length; i++){
-    addCompanyRow(i);
+  for(var i=0; i<todayCompanies.length; i++){
+    // addCompanyRow(i);
     $("#company-image-" + i).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-" + i).text(todayCompanies[i].name);
     var compDesc = todayCompanies[i].description;
@@ -238,12 +240,6 @@ var companySuccess = function(todayCompaniesList) {
     $("#company-link-" + i).attr("target", "_blank");
   };
 };
-
-var MUSENEWS_UTM_PARAMS   = '?utm_campaign=musenews&utm_source=chrome_extension&utm_medium=referral'
-var GLOBAL_NUM_POSTS      = 1;
-var GLOBAL_NUM_COMPANIES  = 2;
-var GLOBAL_NUM_JOBS       = 4;
-
 
 // Main
 $(document).ready(function() {

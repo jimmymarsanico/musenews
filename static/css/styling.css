@@ -75,7 +75,8 @@ button:hover {
 
 .container1350 {
     max-width: 1350px;
-    margin: 0 auto;
+    margin: 0 auto 80px;
+    position: relative;
 }
 
 .container1500 {
@@ -89,6 +90,7 @@ button:hover {
     width: 100%;
     position: relative;
     overflow: hidden;
+    margin-bottom: 50px;
 }
 
 .article-copy {
@@ -102,7 +104,7 @@ button:hover {
 
 .article-copy h1 {
     font-size: 45px;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     font-family: 'Proxima';
     line-height: 60px;
@@ -163,6 +165,40 @@ button:hover {
     left: 0;
     z-index: 100;
 }
+
+/************************* jobs and companies shared styling *************************/
+.jobs, 
+.companies {
+    margin-bottom: 30px;
+}
+
+.jobs h2,
+.companies h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    padding: 20px 0px;
+    text-align: left;
+}
+
+.companies a.search-all,
+.jobs a.search-all {
+    color: #fff;
+    font-size: 12px;
+    display: block;
+    width: 250px;
+    background-color: #3852d4;
+    position: absolute;
+    bottom: -10px;
+}
+
+.jobs a.search-all {
+    left: 16%;
+}
+
+.companies a.search-all {
+    right: 13%;
+}
+
 /************************* jobs styling *************************/
 
 .jobs {
@@ -177,7 +213,7 @@ button:hover {
     max-width: 650px;
     width: 100%;
     padding: 0px 20px;
-    margin: 0 auto 50px;
+    margin: 0px auto;
 }
 
 .jobs td {
@@ -228,24 +264,6 @@ button:hover {
     text-align: left;
 }
 
-.jobs h2,
-.companies h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 35px;
-    padding: 20px 0px;
-    text-align: left;
-}
-
-.companies a.search-all,
-.jobs a.search-all {
-    color: #fff;
-    font-size: 12px;
-    width: 350px;
-    background-color: #3852d4;
-    margin: 0px auto 100px;
-
-}
-
 .jobs h2 {
     padding-left: 20px;
 }
@@ -266,7 +284,6 @@ button:hover {
 .companies {
     float: right;
     width: 50%;
-    padding-bottom: 100px;
     text-align: center;
 }
 
@@ -277,16 +294,13 @@ button:hover {
 
 .companies > ul {
     width: 70%;
-    margin: 0 auto 50px;
+    margin: 0px auto;
     text-align: left;
 }
 
 .companies > ul > li {
     display: block;
-}
-
-.companies > ul > li:first-child {
-    padding: 17px 0px 40px;
+    padding: 20px 0px;
 }
 
 .companies img {
@@ -392,12 +406,13 @@ footer {
 
     .jobs table {
         width: 95%;
+        max-width: 900px;
     }
 
     .companies {
         float: right;
         width: 45%;
-        padding-bottom: 100px;
+        padding-bottom: 50px;
     }
 
     .jobs td.job-location {
@@ -511,6 +526,12 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .article h1 {
+        font-size: 18px;
+        line-height: 18px;
+        margin-bottom: 5px;
+        padding-bottom: 0px;
+    }
     .jobs > ul {
         padding: 0px 20px;
     }

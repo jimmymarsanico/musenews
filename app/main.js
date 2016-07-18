@@ -230,8 +230,8 @@ var companySuccess = function(todayCompaniesList) {
     $("#company-image-" + i).attr('src', todayCompanies[i].refs.f1_image);
     $("#company-name-" + i).text(todayCompanies[i].name);
     var compDesc = todayCompanies[i].description;
-    if(compDesc.length > 137) {
-      compDesc = compDesc.substring(0,137)+'...'
+    if(compDesc.length > 157) {
+      compDesc = compDesc.substring(0,157)+'...'
     };
     $("#company-excerpt-" + i).text(compDesc);
     $("#company-jobs-" + i).attr("href", todayCompanies[i].refs.jobs_page+MUSENEWS_UTM_PARAMS);

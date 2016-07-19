@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Muse News",
-  "description": "Delivers a daily snapshot of career advice from TheMuse.com.",
-  "version": "2.0",
+  "description": "You know careers are a big deal, right? Well we’re here to make sure you’re super happy with yours.",
+  "version": "2.1",
 
   "icons": {
     "16": "static/img/logo/CompanyMuseLogo_16.png",

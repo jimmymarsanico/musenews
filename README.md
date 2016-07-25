@@ -1,17 +1,18 @@
 # MuseNews
-The MuseNews extension is a NewTab replacement that gives you a daily snippet of career advice, and some cool companies that are hiring, too!
+###You know careers are a big deal, right? Well we’re here to make sure you’re super happy with yours.
+
+Imagine waking up on Monday morning and not dreading going to work. Sounds nice, doesn't it?
+
+The Muse can help you get there. We serve up tons of helpful career advice every single day, written just for you, by the most trusted experts in the game.
+
+By downloading this extension, you'll get closer to reaching your career goals every time you open a new tab. And you'll always be just a click away from tons of daily career advice, thousands of incredible job opportunities, and a behind-the-scenes look at the best companies to work for in your area. Just think of of it as an instant boost for your career.
 
 ## Installation instructions
 Please visit the Chrome Web Store and search for **MuseNews** to find our extension.  Or go directly [here]() to download and install.
 
 ## Known bugs to fix
-* GeoLocation permissions pop up on multiple webpages.
+*
 
 ## Further development & work
-* Continue working on reactive design for multiple monitor sizes.
-* Replace GeoLocation lookup from weather store to Google API.
-* Add a weather toggle button for °F vs C.
-* Add links to company images -> profile pages.
-* Change the `onHover()` action for the companies' *See Available Jobs* link, the company images, and the jobs apply links.
-* *Maybe* add some action to the browser button that defaults to menu bar.
-* Update the Chrome Web Store listing for more photos, screenshots, etc.
+* Implement chromeStorage for keeping same-day results throughout the day (or other expected interval: 6 hours, etc).
+* Consider resizing layout to fit neatly on most full screen monitors.

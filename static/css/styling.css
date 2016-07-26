@@ -1,3 +1,4 @@
+/* fonts */
 @font-face {
     font-family: 'Proxima';
     src: url('fonts/proximanova-regular-webfont.eot');
@@ -71,17 +72,23 @@ a {
 a:hover,
 button:hover {
     cursor: pointer;
-}
-
-.container1350 {
-    max-width: 1350px;
-    margin: 0 auto 80px;
-    position: relative;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .container1500 {
     max-width: 1500px;
     margin: 0 auto 50px;
+}
+
+.container1350 {
+    max-width: 1350px;
+    margin: 0 auto 80px;
+    padding-bottom: 10px;
+    position: relative;
 }
 
 /** article styling **/
@@ -90,7 +97,7 @@ button:hover {
     width: 100%;
     position: relative;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .article-copy {
@@ -112,7 +119,7 @@ button:hover {
 }
 
 .article button {
-    background: #3852d4;
+    background: #366ffb;
     color: #fff;
     padding: 12px 0px;
     width: 250px;
@@ -129,11 +136,6 @@ button:hover {
 .article button:hover {
     background-color: #fff;
     color: #333;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease;
 }
 
 .bg-image {
@@ -169,14 +171,14 @@ button:hover {
 /************************* jobs and companies shared styling *************************/
 .jobs, 
 .companies {
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 
 .jobs h2,
 .companies h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 35px;
-    padding: 20px 0px;
+    padding: 0px 20px 10px 50px;
     text-align: left;
 }
 
@@ -186,9 +188,14 @@ button:hover {
     font-size: 12px;
     display: block;
     width: 250px;
-    background-color: #3852d4;
+    background-color: #366ffb;
     position: absolute;
     bottom: -10px;
+}
+
+.companies a.search-all:hover,
+.jobs a.search-all:hover {
+    background-color: #3852d4;
 }
 
 .jobs a.search-all {
@@ -211,8 +218,7 @@ button:hover {
 .jobs table {
     text-align: left;
     max-width: 650px;
-    width: 100%;
-    padding: 0px 20px;
+    width: 85%;
     margin: 0px auto;
 }
 
@@ -264,10 +270,6 @@ button:hover {
     text-align: left;
 }
 
-.jobs h2 {
-    padding-left: 20px;
-}
-
 .apply-button {
     background-color: transparent;
     color: #554589;
@@ -287,20 +289,15 @@ button:hover {
     text-align: center;
 }
 
-.companies h2 {
-    width: 70%;
-    margin: 0 auto;
-}
-
 .companies > ul {
-    width: 70%;
-    margin: 0px auto;
+    width: 85%;
+    margin: 10px auto;
     text-align: left;
 }
 
 .companies > ul > li {
     display: block;
-    padding: 20px 0px;
+    padding: 20px 0px 0px;
 }
 
 .companies img {
@@ -314,7 +311,6 @@ button:hover {
     width: 60%;
     padding-left: 20px;
 }
-
 
 .company-copy h3 {
     font-weight: 700;
@@ -394,25 +390,24 @@ footer {
 }
 
 /************************* responsive *************************/
-@media (max-width: 1350px) {
-    .companies > ul,
-    .companies h2 {
-        width: 95%;
+@media (max-width: 1290px) {
+    .jobs table {
+        width: 90%;
+    }
+}
+@media (max-width: 1250px) {
+    .container1350 { 
+        padding-bottom: 0px;
     }
 
-    .jobs {
-        width: 55%;
+    .jobs h2, 
+    .companies h2 {
+        padding: 0px 20px 10px 15px;
     }
 
     .jobs table {
         width: 95%;
         max-width: 900px;
-    }
-
-    .companies {
-        float: right;
-        width: 45%;
-        padding-bottom: 50px;
     }
 
     .jobs td.job-location {
@@ -430,19 +425,49 @@ footer {
     .apply-button {
         font-size: 10px;
     }
+
+    .companies {
+        margin-bottom: 30px;
+    }
+
+    .companies h2 {
+        width: 95%;
+    }
+
+    .companies > ul {
+        padding-top: 25px;
+        width: 95%;
+    }
+
+    .companies > ul li {
+        padding: 10px 0px 0px;
+    }
 }
 
-@media (max-width: 1070px) {
+@media (max-width: 1200px) {
+    .jobs {
+        width: 60%;
+        padding-bottom: 10px;
+    }
+    .companies {
+        width: 40%;
+    }
+    .company-copy h3 {
+        font-size: 16px;
+    }
     .company-copy p {
         font-size: 12px;
     }
-
     .companies img {
         width: 150px;
     }
+    .companies a.search-all {
+        right: 6%;
+    }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1005px) {
+    .article img,
     .gradient {
         height: 435px;
     }
@@ -459,12 +484,14 @@ footer {
     .jobs, 
     .companies {
         float: none;
-        width: 100%;
+        width: 80%;
+        border: none;
+        margin: 0 auto;
     }
 
-    .jobs > ul li,
-    .jobs > ul > ul li {
-        display: block;
+    .jobs a.search-all, 
+    .companies a.search-all {
+        display: none;
     }
 
     .job-title {
@@ -522,6 +549,9 @@ footer {
     .article button {
         font-size: 10px;
     }
+    .jobs {
+       width: 100%;
+    }
 
 }
 
@@ -531,9 +561,6 @@ footer {
         line-height: 18px;
         margin-bottom: 5px;
         padding-bottom: 0px;
-    }
-    .jobs > ul {
-        padding: 0px 20px;
     }
 
     .indiv-job {

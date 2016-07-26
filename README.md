@@ -8,7 +8,7 @@ The Muse can help you get there. We serve up tons of helpful career advice every
 By downloading this extension, you'll get closer to reaching your career goals every time you open a new tab. And you'll always be just a click away from tons of daily career advice, thousands of incredible job opportunities, and a behind-the-scenes look at the best companies to work for in your area. Just think of of it as an instant boost for your career.
 
 ## Installation instructions
-Please visit the Chrome Web Store and search for **MuseNews** to find our extension.  Or go directly [here]() to download and install.
+Please visit the Chrome Web Store and search for **Muse News** to find our extension.  Or go directly [here](https://chrome.google.com/webstore/detail/muse-news/jkbhkmcbofmagoeoellmienokgmpngdj) to download and install.
 
 ## Known bugs to fix
 *
